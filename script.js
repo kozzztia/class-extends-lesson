@@ -59,12 +59,6 @@ class Admin extends User {
         super(name);
         this.role = 'admin';
     }
-    login() {
-        console.log(`${this.role} - ${this.name} login`)
-    }
-    logout() {
-        console.log(`${this.role} - ${this.name} logout`)
-    }
     addUser(){
         console.log('addUser')
     }
