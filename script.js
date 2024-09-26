@@ -50,14 +50,15 @@ async function createClockPanel() {
         const info = await getTimeZone(inputValue);
 
         if (info && info.status === "OK") {
-            const { countryCode, cityName, zoneName, formatted } = info;
+            const { countryCode, regionName, zoneName, formatted } = info;
             console.log(info)
-            const clockInfo = new Clock(countryCode, cityName, zoneName, formatted);
+            const clockInfo = new Clock(countryCode, regionName, zoneName, formatted);
             clocks.push(clockInfo);
 
             const newClock = clockInfo.createClock();
             clockList.append(newClock);
             clockInfo.startClock();
+            console.log(clocks)
         } else {
             inputField.value = "";
             inputField.placeholder = wrong;

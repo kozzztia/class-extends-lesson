@@ -1,6 +1,6 @@
 :root {
     --main-color: #333;
-    --decore-color: #cfff24;
+    --decore-color: rgb(207, 255, 36);
     --background-color: #f4f4f4;
     --font-size: 16px;
     --max-width: 1400px;
@@ -91,6 +91,12 @@ main {
         width: 100%;
         flex: 1;
         background: var(--background-color);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap :10px;
 
         li {
             display: block;
@@ -103,12 +109,92 @@ main {
 }
 
 .clock {
+    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 50%;
     background: #eee;
-    border:1px solid var(--decore-color);
-    h4{
-      color :red;
+    border: 1px solid var(--decore-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h4 {
+        color: red;
+        position: absolute;
+        font-size: 30px;
+        top: 0;
+        left : 50%;
+        transform: translate(-50%, 0);
     }
+
+    .removeButton {
+        position: absolute;
+        bottom: -20px;
+        border-radius: 10px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 10px;
+        border: none;
+        box-shadow: 0 0 10px #000;
+        background: rgba(207, 255, 36, 0.5);
+        cursor: pointer;
+    }
+
+    .clock-face {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border: 4px solid black;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background-color: white; /* Optional: for a clean clock face */
+    
+    }
+    
+    .hand {
+        position: absolute;
+        width: 50%;
+        height: 6px;
+        background: black;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0%; /* Changed to make sure hands rotate from the middle */
+        transform: rotate(90deg); /* Default position for testing */
+        transition: transform 0.05s ease-in-out;
+    }
+    
+    .hour-hand {
+        height: 8px;
+        width: 30%; /* Shorter length for hour hand */
+        background-color: black;
+    }
+    
+    .minute-hand {
+        height: 6px;
+        width: 45%; /* Longer minute hand */
+        background-color: black;
+    }
+    
+    .second-hand {
+        height: 3px;
+        width: 50%; /* Longest second hand */
+        background-color: red;
+    }
+    
+    /* Optional: Add a small circle at the center of the clock to hide hand rotation point */
+    .clock-center {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: black;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    
+    
 }
